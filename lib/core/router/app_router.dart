@@ -1,3 +1,4 @@
+import 'package:cookeat/core/router/routes.dart';
 import 'package:cookeat/modules/home/view/home_view.dart';
 import 'package:flutter/material.dart';
 
@@ -11,22 +12,15 @@ class AppRouter {
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Paths.initial:
+      case Routes.initial:
         return MaterialPageRoute(
           builder: (_) => initialRoutePage(),
         );
-      case Paths.home:
+      case Routes.home:
         return MaterialPageRoute(
           builder: (_) => const HomeView(),
         );
     }
     return null;
   }
-}
-
-abstract class Paths {
-  Paths._();
-  static const initial = '/';
-  static const home = '/home';
-  static const auth = '/auth';
 }
