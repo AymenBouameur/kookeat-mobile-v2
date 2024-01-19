@@ -33,12 +33,13 @@ class App extends StatelessWidget {
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             onGenerateRoute: AppRouter.onGenerateRoute,
+            navigatorKey: AppRouter.navigatorKey,
             theme:
                 themeState == ThemeMode.light ? AppTheme.light : AppTheme.dark,
             themeMode: themeState,
             color: AppColors.primaryColor,
             themeAnimationCurve: Curves.easeOutQuart,
-            themeAnimationDuration: const Duration(milliseconds: 300),
+            themeAnimationDuration: const Duration(milliseconds: 400),
           );
         },
       ),
