@@ -17,15 +17,15 @@ class AppStyles {
   );
   static TextTheme get customTextTheme => TextTheme(
         labelLarge: const TextStyle(
-          fontSize: FontSizes.headline6,
+          fontSize: FontSizes.headline1,
         ),
         bodyLarge: TextStyle(
           fontWeight: FontWeight.w500,
-          fontSize: FontSizes.subtitle1,
+          fontSize: FontSizes.headline2,
           color: AppColors.textColor,
         ),
         bodyMedium: TextStyle(
-          fontSize: FontSizes.subtitle2,
+          fontSize: FontSizes.headline3,
           color: AppColors.textColor,
         ),
         displayLarge: TextStyle(
@@ -54,13 +54,13 @@ class AppStyles {
           color: AppColors.textColor,
         ),
         titleLarge: TextStyle(
-          fontSize: FontSizes.headline6,
+          fontSize: FontSizes.headline1,
           fontWeight: FontWeight.bold,
           color: AppColors.textColor,
         ),
         bodySmall: TextStyle(
           color: AppColors.textColor,
-          fontSize: FontSizes.headline7,
+          fontSize: FontSizes.headline2,
         ),
       );
 
@@ -77,7 +77,7 @@ class AppStyles {
 
   static TextStyle get elevatedButtonTextStyleDark {
     return TextStyle(
-      fontSize: FontSizes.headline7,
+      fontSize: FontSizes.headline3,
       color: AppColors.textColor,
     );
   }
@@ -121,7 +121,7 @@ class AppStyles {
       disabledBorder: border(),
       hintStyle: TextStyle(
         color: AppColors.textColor.withOpacity(0.5),
-        fontSize: FontSizes.headline7,
+        fontSize: FontSizes.headline3,
       ),
     );
   }
