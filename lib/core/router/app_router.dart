@@ -1,6 +1,9 @@
+import 'package:cookeat/core/data/local/shred_pref.dart';
 import 'package:cookeat/core/router/routes.dart';
 import 'package:cookeat/modules/home/view/home_view.dart';
+import 'package:cookeat/modules/onboard/view/on_board_view.dart';
 import 'package:cookeat/modules/splashscreen/view/splashscreen_view.dart';
+// import 'package:cookeat/modules/splashscreen/view/splashscreen_view.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -8,15 +11,26 @@ class AppRouter {
 
   static final navigatorKey = GlobalKey<NavigatorState>();
 
-  static Widget initialRoutePage() {
-    return const AnimatedSplashScreen();
+  /// This method is about the first page to show
+  /// after the animated spalshScreen.
+  /// Since the [Routes.initial] is the splashScreen.
+  static Future<void> initialRoutePage() async {
+    var route = Routes.onBoard;
+
+    if (!SharedPref.getOnBoardingPassed()) {
+      route = Routes.onBoard;
+    }
+
+    await AppRouter.navigatorKey.currentState?.pushNamed(
+      route,
+    );
   }
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.initial:
         return MaterialPageRoute(
-          builder: (_) => initialRoutePage(),
+          builder: (_) => const AnimatedSplashScreen(),
         );
       case Routes.home:
         return PageRouteBuilder(
@@ -25,6 +39,16 @@ class AppRouter {
             child: FadeTransition(
               opacity: animation,
               child: const HomeView(),
+            ),
+          ),
+        );
+      case Routes.onBoard:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              RepaintBoundary(
+            child: FadeTransition(
+              opacity: animation,
+              child: const OnBoardView(),
             ),
           ),
         );

@@ -12,7 +12,7 @@ class LightThemeColors {
   //SCAFFOLD
   static const Color scaffoldBackgroundColor = Colors.white;
   static const Color backgroundColor = Colors.white;
-  static const Color dividerColor = Color(0xffF3F4F6);
+  static const Color dividerColor = Color(0xFF94958F);
   static const Color cardColor = Color(0xffF9FAFB);
 
   //ICONS

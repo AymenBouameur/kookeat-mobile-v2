@@ -1,6 +1,5 @@
 import 'package:cookeat/config/theme/app_colors.dart';
 import 'package:cookeat/core/router/app_router.dart';
-import 'package:cookeat/core/router/routes.dart';
 import 'package:cookeat/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -18,8 +17,9 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen> {
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       await Future<dynamic>.delayed(const Duration(milliseconds: 2500));
-      await AppRouter.navigatorKey.currentState?.pushNamed(Routes.home);
+      await AppRouter.initialRoutePage(); //
     });
+
     super.initState();
   }
 
