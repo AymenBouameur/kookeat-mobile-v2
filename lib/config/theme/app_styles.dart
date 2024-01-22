@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 /// Class that contains all the different styles of an app
 class AppStyles {
   AppStyles._();
+  static String primaryFontFamily = 'Poppins';
 
   /// Border radius
   static BorderRadius get borderRadius => BorderRadius.circular(15);
@@ -16,49 +17,59 @@ class AppStyles {
     },
   );
   static TextTheme get customTextTheme => TextTheme(
-        labelLarge: const TextStyle(
+        labelLarge: TextStyle(
+          fontFamily: primaryFontFamily,
           fontSize: FontSizes.headline1,
         ),
         bodyLarge: TextStyle(
+          fontFamily: primaryFontFamily,
           fontWeight: FontWeight.w500,
           fontSize: FontSizes.headline2,
           color: AppColors.textColor,
         ),
         bodyMedium: TextStyle(
+          fontFamily: primaryFontFamily,
           fontSize: FontSizes.headline3,
           color: AppColors.textColor,
         ),
         displayLarge: TextStyle(
+          fontFamily: primaryFontFamily,
           fontSize: FontSizes.headline1,
           fontWeight: FontWeight.bold,
           color: AppColors.textColor,
         ),
         displayMedium: TextStyle(
+          fontFamily: primaryFontFamily,
           fontSize: FontSizes.headline2,
           fontWeight: FontWeight.bold,
           color: AppColors.textColor,
         ),
         displaySmall: TextStyle(
+          fontFamily: primaryFontFamily,
           fontSize: FontSizes.headline3,
           fontWeight: FontWeight.bold,
           color: AppColors.textColor,
         ),
         headlineMedium: TextStyle(
+          fontFamily: primaryFontFamily,
           fontSize: FontSizes.headline4,
           fontWeight: FontWeight.bold,
           color: AppColors.textColor,
         ),
         headlineSmall: TextStyle(
+          fontFamily: primaryFontFamily,
           fontSize: FontSizes.headline5,
           fontWeight: FontWeight.bold,
           color: AppColors.textColor,
         ),
         titleLarge: TextStyle(
+          fontFamily: primaryFontFamily,
           fontSize: FontSizes.headline1,
           fontWeight: FontWeight.bold,
           color: AppColors.textColor,
         ),
         bodySmall: TextStyle(
+          fontFamily: primaryFontFamily,
           color: AppColors.textColor,
           fontSize: FontSizes.headline2,
         ),
@@ -68,6 +79,7 @@ class AppStyles {
   static AppBarTheme get getAppBarTheme => AppBarTheme(
         elevation: 0,
         titleTextStyle: customTextTheme.bodyLarge!.copyWith(
+          fontFamily: primaryFontFamily,
           color: Colors.white,
           fontSize: FontSizes.headline5,
         ),
@@ -77,6 +89,7 @@ class AppStyles {
 
   static TextStyle get elevatedButtonTextStyleDark {
     return TextStyle(
+      fontFamily: primaryFontFamily,
       fontSize: FontSizes.headline3,
       color: AppColors.textColor,
     );
@@ -120,6 +133,7 @@ class AppStyles {
       focusedErrorBorder: border(),
       disabledBorder: border(),
       hintStyle: TextStyle(
+        fontFamily: primaryFontFamily,
         color: AppColors.textColor.withOpacity(0.5),
         fontSize: FontSizes.headline3,
       ),

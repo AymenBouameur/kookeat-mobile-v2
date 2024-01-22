@@ -21,6 +21,7 @@ class AppTheme {
       inputDecorationTheme: AppStyles.customInputDecorationTheme,
       elevatedButtonTheme: AppStyles.customElevatedButtonTheme,
       textTheme: AppStyles.customTextTheme,
+      primaryTextTheme: AppStyles.customTextTheme,
       iconTheme: const IconThemeData(
         color: LightThemeColors.iconColor,
       ),
@@ -57,6 +58,7 @@ class AppTheme {
       inputDecorationTheme: AppStyles.customInputDecorationTheme,
       elevatedButtonTheme: AppStyles.customElevatedButtonTheme,
       textTheme: AppStyles.customTextTheme,
+      primaryTextTheme: AppStyles.customTextTheme,
       iconTheme: const IconThemeData(
         color: DarkThemeColors.iconColor,
       ),
