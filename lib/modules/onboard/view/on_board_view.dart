@@ -1,6 +1,8 @@
 import 'package:cookeat/config/theme/app_colors.dart';
 import 'package:cookeat/config/theme/app_font_sizes.dart';
 import 'package:cookeat/core/components/custom_elevated_button.dart';
+import 'package:cookeat/core/data/local/shred_pref.dart';
+import 'package:cookeat/core/router/routes.dart';
 import 'package:cookeat/modules/onboard/view/on_board_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -83,37 +85,44 @@ class _OnBoardViewState extends State<OnBoardView> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CustomElevatedButton(
-                        width: 80,
-                        backgroundColor: AppColors.scaffoldBackgroundColor,
-                        borderSide: BorderSide(
-                          color: AppColors.dividerColor,
-                        ),
-                        onPressed: () {
-                          pageController.previousPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.fastEaseInToSlowEaseOut,
-                          );
-                        },
-                        child: Text(
-                          'Prev',
-                          style: TextStyle(
-                            fontSize: FontSizes.headline4,
-                            fontWeight: FontWeight.w500,
+                      if (pageIndex != 0)
+                        CustomElevatedButton(
+                          width: 80,
+                          backgroundColor: AppColors.scaffoldBackgroundColor,
+                          borderSide: BorderSide(
                             color: AppColors.dividerColor,
                           ),
+                          onPressed: () {
+                            pageController.previousPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.fastEaseInToSlowEaseOut,
+                            );
+                          },
+                          child: Text(
+                            'Prev',
+                            style: TextStyle(
+                              fontSize: FontSizes.headline4,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.dividerColor,
+                            ),
+                          ),
                         ),
-                      ),
+                      const Spacer(),
                       CustomElevatedButton(
                         width: 80,
-                        onPressed: () {
+                        onPressed: () async {
                           if (pageIndex != 2) {
-                            pageController.nextPage(
+                            await pageController.nextPage(
                               duration: const Duration(milliseconds: 300),
                               curve: Curves.fastEaseInToSlowEaseOut,
                             );
                           } else {
-                            // goto next auth
+                            //
+                            await SharedPref.setOnBoardingPassed(
+                              isPassed: true,
+                            );
+                            // ignore: use_build_context_synchronously
+                            await Navigator.pushNamed(context, Routes.auth);
                           }
                         },
                         child: Text(

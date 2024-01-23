@@ -1,9 +1,10 @@
 import 'package:cookeat/core/data/local/shred_pref.dart';
 import 'package:cookeat/core/router/routes.dart';
+import 'package:cookeat/modules/auth/forgot_password/view/forgot_password_view.dart';
+import 'package:cookeat/modules/auth/view/auth_view.dart';
 import 'package:cookeat/modules/home/view/home_view.dart';
 import 'package:cookeat/modules/onboard/view/on_board_view.dart';
 import 'package:cookeat/modules/splashscreen/view/splashscreen_view.dart';
-// import 'package:cookeat/modules/splashscreen/view/splashscreen_view.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -15,13 +16,13 @@ class AppRouter {
   /// after the animated spalshScreen.
   /// Since the [Routes.initial] is the splashScreen.
   static Future<void> initialRoutePage() async {
-    var route = Routes.onBoard;
+    var route = Routes.auth;
 
     if (!SharedPref.getOnBoardingPassed()) {
       route = Routes.onBoard;
     }
 
-    await AppRouter.navigatorKey.currentState?.pushNamed(
+    await AppRouter.navigatorKey.currentState?.pushReplacementNamed(
       route,
     );
   }
@@ -51,6 +52,20 @@ class AppRouter {
               child: const OnBoardView(),
             ),
           ),
+        );
+      case Routes.auth:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              RepaintBoundary(
+            child: FadeTransition(
+              opacity: animation,
+              child: const AuthView(),
+            ),
+          ),
+        );
+      case Routes.forgotPassword:
+        return MaterialPageRoute(
+          builder: (_) => const ForgotPasswordView(),
         );
     }
     return null;
