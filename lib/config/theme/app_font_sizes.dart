@@ -7,4 +7,5 @@ class FontSizes {
   static const double headline3 = 16;
   static const double headline4 = 14;
   static const double headline5 = 12;
+  static const double headline6 = 10;
 }

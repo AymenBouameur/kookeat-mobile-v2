@@ -115,7 +115,7 @@ class AppStyles {
       return OutlineInputBorder(
         borderRadius: borderRadius,
         borderSide: BorderSide(
-          color: AppColors.dividerColor,
+          color: AppColors.accentColor,
         ),
       );
     }
@@ -132,6 +132,9 @@ class AppStyles {
       errorBorder: border(),
       focusedErrorBorder: border(),
       disabledBorder: border(),
+      errorStyle: const TextStyle(
+        fontSize: FontSizes.headline6,
+      ),
       hintStyle: TextStyle(
         fontFamily: primaryFontFamily,
         color: AppColors.textColor.withOpacity(0.5),

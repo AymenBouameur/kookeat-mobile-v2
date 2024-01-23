@@ -56,6 +56,10 @@ class AppColors {
   static Color textColor = _isLightTheme
       ? LightThemeColors.bodyTextColor
       : DarkThemeColors.bodyTextColor;
+  //
+  static Color textHeadlineColor = _isLightTheme
+      ? LightThemeColors.headlinesTextColor
+      : DarkThemeColors.headlinesTextColor;
 
   // progress bar indicator
   static Color progressIndicatorColor = _isLightTheme

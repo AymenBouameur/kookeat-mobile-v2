@@ -1,6 +1,7 @@
 import 'package:cookeat/config/theme/app_colors.dart';
 import 'package:cookeat/config/theme/app_theme.dart';
 import 'package:cookeat/config/theme_cubit/theme_cubit.dart';
+import 'package:cookeat/core/components/custom_snackbar.dart';
 import 'package:cookeat/core/router/app_router.dart';
 import 'package:cookeat/l10n/l10n.dart';
 import 'package:cookeat/l10n/locale_cubit/locale_cubit.dart';
@@ -34,6 +35,7 @@ class App extends StatelessWidget {
             supportedLocales: AppLocalizations.supportedLocales,
             onGenerateRoute: AppRouter.onGenerateRoute,
             navigatorKey: AppRouter.navigatorKey,
+            scaffoldMessengerKey: CustomSnackBar.snackbarKey,
             theme:
                 themeState == ThemeMode.light ? AppTheme.light : AppTheme.dark,
             themeMode: themeState,
