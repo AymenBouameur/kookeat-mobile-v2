@@ -1,6 +1,7 @@
 import 'package:cookeat/core/data/local/shred_pref.dart';
 import 'package:cookeat/core/router/routes.dart';
 import 'package:cookeat/modules/auth/forgot_password/view/forgot_password_view.dart';
+import 'package:cookeat/modules/auth/sign_up/sign_up.dart';
 import 'package:cookeat/modules/auth/view/auth_view.dart';
 import 'package:cookeat/modules/home/view/home_view.dart';
 import 'package:cookeat/modules/onboard/view/on_board_view.dart';
@@ -62,6 +63,10 @@ class AppRouter {
               child: const AuthView(),
             ),
           ),
+        );
+      case Routes.signUp:
+        return MaterialPageRoute(
+          builder: (_) => const SignUpView(),
         );
       case Routes.forgotPassword:
         return MaterialPageRoute(

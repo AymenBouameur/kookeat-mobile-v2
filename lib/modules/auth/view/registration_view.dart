@@ -1,6 +1,7 @@
 import 'package:cookeat/config/theme/app_colors.dart';
 import 'package:cookeat/core/components/custom_elevated_button.dart';
 import 'package:cookeat/core/components/custom_text.dart';
+import 'package:cookeat/core/router/routes.dart';
 import 'package:cookeat/core/utils/constants.dart';
 import 'package:cookeat/modules/auth/sign_in/widgets/social_auth_button_widget.dart';
 import 'package:cookeat/modules/auth/view/auth_view.dart';
@@ -77,11 +78,7 @@ class RegistrationView extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    AuthView.pageController.animateToPage(
-                      2,
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.fastEaseInToSlowEaseOut,
-                    );
+                    Navigator.pushNamed(context, Routes.signUp);
                   },
                   child: CustomText(
                     'Sign up',

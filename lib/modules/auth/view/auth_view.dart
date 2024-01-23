@@ -1,5 +1,4 @@
 import 'package:cookeat/modules/auth/sign_in/sign_in.dart';
-import 'package:cookeat/modules/auth/sign_up/sign_up.dart';
 import 'package:cookeat/modules/auth/view/registration_view.dart';
 import 'package:flutter/material.dart';
 
@@ -25,11 +24,10 @@ class _AuthViewState extends State<AuthView> {
         child: Center(
           child: PageView(
             controller: AuthView.pageController,
-            // physics: const NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             children: const [
               RegistrationView(),
               SignInView(),
-              SignUpView(),
             ],
           ),
         ),
