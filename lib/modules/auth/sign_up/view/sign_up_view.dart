@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cookeat/config/theme/theme.dart';
 import 'package:cookeat/core/components/components.dart';
 import 'package:cookeat/core/utils/constants.dart';
@@ -13,7 +15,7 @@ class SignUpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
+    final height = MediaQuery.sizeOf(context).height;
 
     final signUpFormKey = GlobalKey<FormState>();
 
@@ -23,9 +25,9 @@ class SignUpView extends StatelessWidget {
 
     var passwordVisible = false;
     var isAgreedToTerms = false;
-
+    log('message');
     return BlocProvider(
-      create: (context) => SignUpBloc(),
+      create: (_) => SignUpBloc(),
       child: Scaffold(
         body: SafeArea(
           child: Padding(
@@ -94,7 +96,7 @@ class SignUpView extends StatelessWidget {
                     ),
                     const Gap(20),
                     StatefulBuilder(
-                      builder: (context, setstate) {
+                      builder: (_, setstate) {
                         return CustomTextFormField(
                           hintText: 'Password',
                           textInputAction: TextInputAction.done,

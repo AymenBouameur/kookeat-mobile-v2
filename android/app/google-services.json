@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "541945857028",
+    "project_id": "cookeat-8928b",
+    "storage_bucket": "cookeat-8928b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541945857028:android:cb9ee991307762c06ee151",
+        "android_client_info": {
+          "package_name": "com.cookeat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuX7xLzR5L5cefGSQuOYMK2kmWgBQ04RY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
