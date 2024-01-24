@@ -12,6 +12,7 @@ class SharedPref {
   static const String _currentLocalKey = 'current_local';
   static const String _lightThemeKey = 'is_theme_light';
   static const String _onBoardPassed = 'on_boarding_passed';
+  static const String _completeProfile = 'complete_profile';
   static const String _loggedIn = 'is_logged_in';
 
   /// init get storage services
@@ -56,6 +57,14 @@ class SharedPref {
   /// get On Boarding Passed
   static bool getOnBoardingPassed() =>
       _sharedPreferences.getBool(_onBoardPassed) ?? false;
+
+  /// set Complete Profile
+  static Future<bool> setCompleteProfile({required bool completeProfile}) =>
+      _sharedPreferences.setBool(_completeProfile, completeProfile);
+
+  /// get Complete Profile
+  static bool getCompleteProfile() =>
+      _sharedPreferences.getBool(_completeProfile) ?? false;
 
   /// clear all data from shared pref
   static Future<void> clear() async => _sharedPreferences.clear();

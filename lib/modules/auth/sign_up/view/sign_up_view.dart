@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cookeat/config/theme/theme.dart';
 import 'package:cookeat/core/components/components.dart';
 import 'package:cookeat/core/utils/constants.dart';
@@ -25,7 +23,7 @@ class SignUpView extends StatelessWidget {
 
     var passwordVisible = false;
     var isAgreedToTerms = false;
-    log('message');
+
     return BlocProvider(
       create: (_) => SignUpBloc(),
       child: Scaffold(

@@ -1,11 +1,14 @@
 import 'package:cookeat/config/theme/app_colors.dart';
 import 'package:cookeat/core/components/custom_elevated_button.dart';
+import 'package:cookeat/core/components/custom_loading_overlay.dart';
 import 'package:cookeat/core/components/custom_text.dart';
 import 'package:cookeat/core/router/routes.dart';
 import 'package:cookeat/core/utils/constants.dart';
+import 'package:cookeat/modules/auth/bloc/auth_bloc.dart';
 import 'package:cookeat/modules/auth/sign_in/widgets/social_auth_button_widget.dart';
 import 'package:cookeat/modules/auth/view/auth_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
@@ -31,19 +34,37 @@ class RegistrationView extends StatelessWidget {
               SocialAuthButtonWidget(
                 icon: 'google-logo',
                 title: 'Google',
-                onPressed: () {},
+                onPressed: () async {
+                  // await CustomLoadingOverlay.show(
+                  //   asyncFunction: () async {
+                  context.read<AuthBloc>().add(AuthWithGoogleEvent());
+                  //   },
+                  // );
+                },
               ),
               const Gap(15),
               SocialAuthButtonWidget(
                 icon: 'apple-logo',
                 title: 'Apple',
-                onPressed: () {},
+                onPressed: () async {
+                  await CustomLoadingOverlay.show(
+                    asyncFunction: () async {
+                      context.read<AuthBloc>().add(AuthWithAppleEvent());
+                    },
+                  );
+                },
               ),
               const Gap(15),
               SocialAuthButtonWidget(
                 icon: 'facebook-logo',
                 title: 'Facebook',
-                onPressed: () {},
+                onPressed: () async {
+                  await CustomLoadingOverlay.show(
+                    asyncFunction: () async {
+                      context.read<AuthBloc>().add(AuthWithFacebookEvent());
+                    },
+                  );
+                },
               ),
               const Gap(35),
               const CustomText(

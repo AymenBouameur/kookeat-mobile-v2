@@ -13,12 +13,12 @@ class SocialAuthServices {
   SocialAuthServices._();
 
   /// Google Auth.
-  static Future<bool> signInWithGoogle() async {
+  static Future<UserCredential?> signInWithGoogle() async {
     try {
       // Trigger the authentication flow
       final googleUser = await GoogleSignIn().signIn();
       // Check if there is a user in googleUser
-      if (googleUser == null) return false;
+      if (googleUser == null) return null;
       // Obtain the auth details from the request
       final googleAuth = await googleUser.authentication;
       // Create a new credential
@@ -29,45 +29,48 @@ class SocialAuthServices {
 
       // Once signed in, return the UserCredential
 
-      await FirebaseAuth.instance.signInWithCredential(credential);
+      final userCredentials = await FirebaseAuth.instance.signInWithCredential(
+        credential,
+      );
 
-      return true;
+      return userCredentials;
     } catch (e) {
-      log('Google Auth: $e');
+      log('Google Auth error : $e');
       // CustomSnackBar.showCustomErrorSnackBar(
       //   title: 'Google authentication',
       //   message: 'Something went wrong.',
       // );
-      return false;
+      return null;
     }
   }
 
   /// Facebook Auth.
-  static Future<bool> signInWithFacebook() async {
+  static Future<UserCredential?> signInWithFacebook() async {
     try {
       // Trigger the sign-in flow
       final loginResult = await FacebookAuth.instance.login();
-      if (loginResult.status != LoginStatus.success) return false;
+      if (loginResult.status != LoginStatus.success) return null;
       // Create a credential from the access token
       final facebookAuthCredential =
           FacebookAuthProvider.credential(loginResult.accessToken!.token);
 
       // Once signed in, return the UserCredential
-      await FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+      final userCredentials = await FirebaseAuth.instance
+          .signInWithCredential(facebookAuthCredential);
 
-      return true;
+      return userCredentials;
     } catch (e) {
-      log('Facebook Auth: $e');
+      log('Facebook Auth error : $e');
       // CustomSnackBar.showCustomErrorSnackBar(
       //   title: 'Facebook authentication',
       //   message: 'Something went wrong.',
       // );
-      return false;
+      return null;
     }
   }
 
   /// Apple Auth.
-  static Future<bool> signInWithApple() async {
+  static Future<UserCredential?> signInWithApple() async {
     try {
       final rawNonce = generateNonce();
       final nonce = sha256ofString(rawNonce);
@@ -85,16 +88,17 @@ class SocialAuthServices {
         rawNonce: rawNonce,
       );
 
-      await FirebaseAuth.instance.signInWithCredential(oauthCredential);
+      final userCredentials =
+          await FirebaseAuth.instance.signInWithCredential(oauthCredential);
 
-      return true;
+      return userCredentials;
     } catch (e) {
-      log('Apple Auth: $e');
+      log('Apple Auth error : $e');
       // CustomSnackBar.showCustomErrorSnackBar(
       //   title: 'Apple authentication',
       //   message: 'Something went wrong.',
       // );
-      return false;
+      return null;
     }
   }
 

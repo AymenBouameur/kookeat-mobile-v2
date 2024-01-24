@@ -1,6 +1,8 @@
+import 'package:cookeat/modules/auth/bloc/auth_bloc.dart';
 import 'package:cookeat/modules/auth/sign_in/sign_in.dart';
 import 'package:cookeat/modules/auth/view/registration_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthView extends StatefulWidget {
   const AuthView({super.key});
@@ -25,9 +27,12 @@ class _AuthViewState extends State<AuthView> {
           child: PageView(
             controller: AuthView.pageController,
             physics: const NeverScrollableScrollPhysics(),
-            children: const [
-              RegistrationView(),
-              SignInView(),
+            children: [
+              BlocProvider(
+                create: (context) => AuthBloc(),
+                child: const RegistrationView(),
+              ),
+              const SignInView(),
             ],
           ),
         ),

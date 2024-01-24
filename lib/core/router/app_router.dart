@@ -1,5 +1,6 @@
 import 'package:cookeat/core/data/local/shred_pref.dart';
 import 'package:cookeat/core/router/routes.dart';
+import 'package:cookeat/modules/auth/complete_profile/view/complete_profile_view.dart';
 import 'package:cookeat/modules/auth/forgot_password/view/forgot_password_view.dart';
 import 'package:cookeat/modules/auth/sign_up/sign_up.dart';
 import 'package:cookeat/modules/auth/view/auth_view.dart';
@@ -21,6 +22,10 @@ class AppRouter {
 
     if (!SharedPref.getOnBoardingPassed()) {
       route = Routes.onBoard;
+    } else if (SharedPref.getCompleteProfile()) {
+      route = Routes.completeProfile;
+    } else if (SharedPref.getIsUserLoggedIn()) {
+      route = Routes.home;
     }
 
     await AppRouter.navigatorKey.currentState?.pushReplacementNamed(
@@ -71,6 +76,10 @@ class AppRouter {
       case Routes.forgotPassword:
         return MaterialPageRoute(
           builder: (_) => const ForgotPasswordView(),
+        );
+      case Routes.completeProfile:
+        return MaterialPageRoute(
+          builder: (_) => const CompleteProfileView(),
         );
     }
     return null;
