@@ -51,7 +51,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               );
               // When document created then:
               if (created) {
-                await SharedPref.setCompleteProfile(completeProfile: true);
+                await SharedPref.setCompleteProfile(completeProfile: false);
 
                 unawaited(
                   AppRouter.navigatorKey.currentState
@@ -73,7 +73,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 );
                 // TODO(MAH): Store document user.
               } else {
-                await SharedPref.setCompleteProfile(completeProfile: true);
+                await SharedPref.setCompleteProfile(completeProfile: false);
                 // GOTO : COMPLETE PROFILE.
                 // When user did not finish complete profile:
                 unawaited(
