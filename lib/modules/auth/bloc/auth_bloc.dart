@@ -51,6 +51,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               );
               // When document created then:
               if (created) {
+                await SharedPref.setCompleteProfile(completeProfile: true);
+
                 unawaited(
                   AppRouter.navigatorKey.currentState
                       ?.pushReplacementNamed(Routes.completeProfile),
