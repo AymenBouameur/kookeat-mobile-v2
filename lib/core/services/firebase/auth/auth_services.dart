@@ -1,9 +1,12 @@
 import 'dart:developer';
 
 import 'package:cookeat/core/components/components.dart';
+import 'package:cookeat/core/data/local/shred_pref.dart';
 import 'package:cookeat/core/data/models/user_model.dart';
 import 'package:cookeat/core/services/firebase/auth/user_serviecs.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthServices {
   AuthServices._();
@@ -79,6 +82,25 @@ class AuthServices {
       return false;
     } catch (e) {
       log('Firebase sign up error: $e');
+      return false;
+    }
+  }
+
+  /// Firebase sign out.
+  static Future<bool> signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      await GoogleSignIn().signOut();
+      await FacebookAuth.instance.logOut();
+
+      await SharedPref.clear();
+      return true;
+    } catch (e) {
+      log('Logout error:$e');
+      CustomSnackBar.showSnackBar(
+        text: 'Something went wrong.',
+        isError: true,
+      );
       return false;
     }
   }

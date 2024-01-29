@@ -36,10 +36,6 @@ class SocialAuthServices {
       return userCredentials;
     } catch (e) {
       log('Google Auth error : $e');
-      // CustomSnackBar.showCustomErrorSnackBar(
-      //   title: 'Google authentication',
-      //   message: 'Something went wrong.',
-      // );
       return null;
     }
   }
@@ -61,10 +57,6 @@ class SocialAuthServices {
       return userCredentials;
     } catch (e) {
       log('Facebook Auth error : $e');
-      // CustomSnackBar.showCustomErrorSnackBar(
-      //   title: 'Facebook authentication',
-      //   message: 'Something went wrong.',
-      // );
       return null;
     }
   }
@@ -94,10 +86,6 @@ class SocialAuthServices {
       return userCredentials;
     } catch (e) {
       log('Apple Auth error : $e');
-      // CustomSnackBar.showCustomErrorSnackBar(
-      //   title: 'Apple authentication',
-      //   message: 'Something went wrong.',
-      // );
       return null;
     }
   }
