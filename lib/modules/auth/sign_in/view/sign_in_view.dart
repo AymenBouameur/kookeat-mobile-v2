@@ -33,6 +33,7 @@ class SignInView extends StatelessWidget {
               child: Column(
                 children: [
                   const Gap(20),
+                  // Header
                   Row(
                     children: [
                       CustomArrowBack(
@@ -52,7 +53,7 @@ class SignInView extends StatelessWidget {
                         'Welcome Back',
                         textColor: AppColors.textHeadlineColor,
                         fontWeight: FontWeight.w600,
-                        fontsize: FontSizes.headline2,
+                        fontSize: FontSizes.headline2,
                       ),
                     ],
                   ),
@@ -137,7 +138,7 @@ class SignInView extends StatelessWidget {
                         child: const CustomText(
                           'Forgot Password?',
                           fontWeight: FontWeight.w400,
-                          fontsize: FontSizes.headline5,
+                          fontSize: FontSizes.headline5,
                         ),
                       ),
                     ],

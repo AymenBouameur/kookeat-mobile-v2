@@ -86,6 +86,23 @@ class AuthServices {
     }
   }
 
+  /// Firebase reset password.
+  static Future<bool> resetPassword({required String email}) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(
+        email: email,
+      );
+      return true;
+    } on FirebaseException catch (e) {
+      log('Password reset email error: $e');
+      CustomSnackBar.showSnackBar(
+        text: e.toString(),
+        isError: true,
+      );
+      return false;
+    }
+  }
+
   /// Firebase sign out.
   static Future<bool> signOut() async {
     try {
@@ -94,6 +111,7 @@ class AuthServices {
       await FacebookAuth.instance.logOut();
 
       await SharedPref.clear();
+      await SharedPref.setOnBoardingPassed(isPassed: true);
       return true;
     } catch (e) {
       log('Logout error:$e');

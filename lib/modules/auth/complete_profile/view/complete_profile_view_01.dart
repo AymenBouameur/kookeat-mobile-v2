@@ -31,7 +31,7 @@ class CompleteProfileView01 extends StatelessWidget {
           fontWeight: FontWeight.w600,
           textAlign: TextAlign.center,
           textColor: AppColors.textHeadlineColor,
-          fontsize: FontSizes.headline1,
+          fontSize: FontSizes.headline1,
         ),
         const Gap(45),
         Wrap(

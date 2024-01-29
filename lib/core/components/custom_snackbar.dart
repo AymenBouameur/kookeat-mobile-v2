@@ -14,7 +14,7 @@ class CustomSnackBar {
         content: CustomText(
           text,
           textColor: AppColors.scaffoldBackgroundColor,
-          fontsize: FontSizes.headline5,
+          fontSize: FontSizes.headline5,
         ),
         backgroundColor: isError ? Colors.redAccent : AppColors.accentColor,
       ),

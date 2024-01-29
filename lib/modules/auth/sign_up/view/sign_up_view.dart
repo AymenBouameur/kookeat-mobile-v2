@@ -44,7 +44,7 @@ class SignUpView extends StatelessWidget {
                           'Create your Account',
                           textColor: AppColors.textHeadlineColor,
                           fontWeight: FontWeight.w600,
-                          fontsize: FontSizes.headline2,
+                          fontSize: FontSizes.headline2,
                         ),
                       ],
                     ),
@@ -166,7 +166,7 @@ class SignUpView extends StatelessWidget {
                         const Gap(10),
                         const CustomText(
                           'I have read and agree to ',
-                          fontsize: FontSizes.headline4,
+                          fontSize: FontSizes.headline4,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -176,7 +176,7 @@ class SignUpView extends StatelessWidget {
                             'the terms',
                             textColor: AppColors.primaryColor,
                             fontWeight: FontWeight.w600,
-                            fontsize: FontSizes.headline4,
+                            fontSize: FontSizes.headline4,
                           ),
                         ),
                       ],
