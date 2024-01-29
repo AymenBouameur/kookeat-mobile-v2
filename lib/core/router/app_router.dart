@@ -22,7 +22,7 @@ class AppRouter {
 
     if (!SharedPref.getOnBoardingPassed()) {
       route = Routes.onBoard;
-    } else if (!SharedPref.getCompleteProfile()) {
+    } else if (!SharedPref.getIsProfileComplete()) {
       route = Routes.completeProfile;
     } else if (SharedPref.getIsUserLoggedIn()) {
       route = Routes.home;

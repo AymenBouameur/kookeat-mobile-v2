@@ -41,17 +41,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             if (isNewUser) {
               // Create user document;
               final created = await UserServices.createUserDocument(
-                userId: userCredential.user?.uid ?? '',
                 user: UserModel(
                   uid: userCredential.user?.uid,
-                  firstName: userCredential.user?.displayName,
+                  fullName: userCredential.user?.displayName,
                   emailAddress: userCredential.user?.email,
                   completeProfile: 0,
                 ),
               );
               // When document created then:
               if (created) {
-                await SharedPref.setCompleteProfile(completeProfile: false);
+                await SharedPref.setIsProfileComplete(completed: false);
 
                 unawaited(
                   AppRouter.navigatorKey.currentState
@@ -73,7 +72,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
                 );
                 // TODO(MAH): Store document user.
               } else {
-                await SharedPref.setCompleteProfile(completeProfile: false);
+                await SharedPref.setIsProfileComplete(completed: false);
                 // GOTO : COMPLETE PROFILE.
                 // When user did not finish complete profile:
                 unawaited(

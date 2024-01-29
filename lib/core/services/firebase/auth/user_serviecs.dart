@@ -10,12 +10,12 @@ class UserServices {
   ///// create a user in firestore
   static Future<bool> createUserDocument({
     required UserModel user,
-    required String userId,
+    String? userId,
   }) async {
     try {
       final usersCollection = FirebaseFirestore.instance.collection('users');
       // submit user information to firestore.
-      await usersCollection.doc(userId).set(
+      await usersCollection.doc(user.uid ?? userId).set(
             user.setUser(
               user,
             ),
@@ -52,6 +52,29 @@ class UserServices {
     } catch (e) {
       log('Get current user from document error:$e');
       return null;
+    }
+  }
+
+  /// Update user document
+  static Future<bool> updateUserDocument({
+    required UserModel user,
+    String? documentId,
+  }) async {
+    try {
+      final CollectionReference collection =
+          FirebaseFirestore.instance.collection('users');
+      final document = collection.doc(
+        documentId ?? FirebaseAuth.instance.currentUser?.uid,
+      );
+
+      // Update the specific field
+      await document.update(UserModel().setUser(user));
+
+      log('User document updated successfully');
+      return true;
+    } catch (e) {
+      log('Error updating user document: $e');
+      return false;
     }
   }
 }

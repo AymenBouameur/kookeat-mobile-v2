@@ -59,12 +59,12 @@ class SharedPref {
       _sharedPreferences.getBool(_onBoardPassed) ?? false;
 
   /// set Complete Profile
-  static Future<bool> setCompleteProfile({required bool completeProfile}) =>
-      _sharedPreferences.setBool(_completeProfile, completeProfile);
+  static Future<bool> setIsProfileComplete({required bool completed}) =>
+      _sharedPreferences.setBool(_completeProfile, completed);
 
   /// get Complete Profile
-  static bool getCompleteProfile() =>
-      _sharedPreferences.getBool(_completeProfile) ?? false;
+  static bool getIsProfileComplete() =>
+      _sharedPreferences.getBool(_completeProfile) ?? true;
 
   /// clear all data from shared pref
   static Future<void> clear() async => _sharedPreferences.clear();

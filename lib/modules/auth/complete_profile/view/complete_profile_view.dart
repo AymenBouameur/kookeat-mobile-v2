@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:cookeat/config/theme/theme.dart';
 import 'package:cookeat/core/components/components.dart';
 import 'package:cookeat/core/data/local/shred_pref.dart';
+import 'package:cookeat/core/data/models/user_model.dart';
 import 'package:cookeat/core/router/router.dart';
+import 'package:cookeat/core/services/firebase/auth/user_serviecs.dart';
 import 'package:cookeat/modules/auth/complete_profile/complete_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -98,17 +100,26 @@ class _CompleteProfileViewState extends State<CompleteProfileView> {
                             curve: Curves.fastEaseInToSlowEaseOut,
                           );
                         } else {
-                          await SharedPref.setCompleteProfile(
-                            completeProfile: true,
-                          );
-                          await SharedPref.setIsUserLoggedIn(isloggedin: true);
-                          // ignore: use_build_context_synchronously
-                          unawaited(
-                            // ignore: use_build_context_synchronously
-                            Navigator.pushReplacementNamed(
-                              context,
-                              Routes.home,
-                            ),
+                          /// COMPLETE ///
+                          await CustomLoadingOverlay.show(
+                            asyncFunction: () async {
+                              await SharedPref.setIsProfileComplete(
+                                completed: true,
+                              );
+                              await SharedPref.setIsUserLoggedIn(
+                                isloggedin: true,
+                              );
+                              await UserServices.updateUserDocument(
+                                user: UserModel(completeProfile: 1),
+                              );
+                              unawaited(
+                                // ignore: use_build_context_synchronously
+                                Navigator.pushReplacementNamed(
+                                  context,
+                                  Routes.home,
+                                ),
+                              );
+                            },
                           );
                         }
                       },
