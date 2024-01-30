@@ -1,5 +1,6 @@
 import 'package:cookeat/config/theme/theme.dart';
 import 'package:cookeat/core/components/components.dart';
+import 'package:cookeat/core/router/router.dart';
 import 'package:cookeat/core/services/firebase/auth/auth_services.dart';
 import 'package:cookeat/core/utils/form_utils.dart';
 import 'package:flutter/material.dart';
@@ -78,6 +79,7 @@ class ForgotPasswordEmailView extends StatelessWidget {
               if (emailFormKey.currentState?.validate() ?? false) {
                 final sent = await AuthServices.resetPassword(email: email);
                 if (sent) {
+                  AppRouter.navigatorKey.currentState?.pop();
                   CustomSnackBar.showSnackBar(
                     text: 'Check your email to reset the password.',
                   );
