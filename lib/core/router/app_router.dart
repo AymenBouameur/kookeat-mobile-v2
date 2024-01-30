@@ -4,8 +4,8 @@ import 'package:cookeat/modules/auth/complete_profile/view/complete_profile_view
 import 'package:cookeat/modules/auth/forgot_password/view/forgot_password_view.dart';
 import 'package:cookeat/modules/auth/sign_up/sign_up.dart';
 import 'package:cookeat/modules/auth/view/auth_view.dart';
-import 'package:cookeat/modules/home/view/home_view.dart';
 import 'package:cookeat/modules/onboard/view/on_board_view.dart';
+import 'package:cookeat/modules/root/view/root_view.dart';
 import 'package:cookeat/modules/splashscreen/view/splashscreen_view.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +45,7 @@ class AppRouter {
               RepaintBoundary(
             child: FadeTransition(
               opacity: animation,
-              child: const HomeView(),
+              child: const RootView(),
             ),
           ),
         );

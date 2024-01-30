@@ -8,7 +8,7 @@ class AppTheme {
 
   /// Light style
   static ThemeData get light {
-    final base = ThemeData.light();
+    final base = ThemeData.light(useMaterial3: true);
 
     return base.copyWith(
       brightness: Brightness.light,
@@ -33,6 +33,14 @@ class AppTheme {
           statusBarBrightness: Brightness.light,
         ),
       ),
+      bottomAppBarTheme: const BottomAppBarTheme(
+        color: LightThemeColors.backgroundColor,
+        shape: CircularNotchedRectangle(),
+        surfaceTintColor: Colors.transparent,
+        elevation: 3,
+      ),
+      primaryColorLight: LightThemeColors.primaryColor,
+      primaryColorDark: LightThemeColors.primaryColor,
       colorScheme: const ColorScheme.light().copyWith(
         primary: LightThemeColors.primaryColor,
         secondary: LightThemeColors.accentColor,
@@ -70,6 +78,14 @@ class AppTheme {
           statusBarBrightness: Brightness.dark,
         ),
       ),
+      bottomAppBarTheme: const BottomAppBarTheme(
+        color: LightThemeColors.backgroundColor,
+        shape: CircularNotchedRectangle(),
+        surfaceTintColor: Colors.transparent,
+        elevation: 3,
+      ),
+      primaryColorLight: LightThemeColors.primaryColor,
+      primaryColorDark: LightThemeColors.primaryColor,
       colorScheme: const ColorScheme.dark().copyWith(
         primary: DarkThemeColors.primaryColor,
         secondary: DarkThemeColors.accentColor,
