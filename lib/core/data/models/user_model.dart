@@ -24,11 +24,12 @@ class UserModel {
   String? emailAddress;
   Map<String, dynamic> setUser(UserModel user) {
     final data = <String, dynamic>{};
-
-    data['uid'] = user.uid;
-    data['fullName'] = user.fullName;
-    data['emailAddress'] = user.emailAddress;
-    data['completeProfile'] = user.completeProfile;
+    if (user.uid != null) data['uid'] = user.uid;
+    if (user.fullName != null) data['fullName'] = user.fullName;
+    if (user.emailAddress != null) data['emailAddress'] = user.emailAddress;
+    if (user.completeProfile != null) {
+      data['completeProfile'] = user.completeProfile;
+    }
 
     return data;
   }
