@@ -1,9 +1,9 @@
-import 'package:cookeat/config/theme/app_colors.dart';
+import 'package:cookeat/config/theme/theme.dart';
 import 'package:cookeat/core/components/components.dart';
 import 'package:flutter/material.dart';
 
-class ProfileSettingsView extends StatelessWidget {
-  const ProfileSettingsView({super.key});
+class ChangeLanguageView extends StatelessWidget {
+  const ChangeLanguageView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class ProfileSettingsView extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: CustomText(
-          'Parametres de compte',
+          'Languages',
           fontWeight: FontWeight.w600,
           textColor: AppColors.textHeadlineColor,
         ),
@@ -22,7 +22,7 @@ class ProfileSettingsView extends StatelessWidget {
       ),
       body: const SafeArea(
         child: Center(
-          child: CustomText('Parametres de compte'),
+          child: CustomText('Languages'),
         ),
       ),
     );

@@ -8,7 +8,7 @@ import 'package:cookeat/modules/onboard/view/on_board_view.dart';
 import 'package:cookeat/modules/profile/view/cookeat_settings_view.dart';
 import 'package:cookeat/modules/profile/view/favorites_view.dart';
 import 'package:cookeat/modules/profile/view/orders_view.dart';
-import 'package:cookeat/modules/profile/view/profile_settings_view.dart';
+import 'package:cookeat/modules/profile/view/profile_settings/profile_settings.dart';
 import 'package:cookeat/modules/root/view/root_view.dart';
 import 'package:cookeat/modules/splashscreen/view/splashscreen_view.dart';
 import 'package:flutter/material.dart';
@@ -85,10 +85,30 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => const CompleteProfileView(),
         );
+
+      /// PROFILE VIEW ///
       case Routes.profileSettings:
         return MaterialPageRoute(
           builder: (_) => const ProfileSettingsView(),
         );
+      // - Profile settings - //
+      case Routes.editProfile:
+        return MaterialPageRoute(
+          builder: (_) => const EditProfileView(),
+        );
+      case Routes.changeLanguage:
+        return MaterialPageRoute(
+          builder: (_) => const ChangeLanguageView(),
+        );
+      case Routes.changePassword:
+        return MaterialPageRoute(
+          builder: (_) => const ChangePasswordView(),
+        );
+      case Routes.profileDeliveryAddress:
+        return MaterialPageRoute(
+          builder: (_) => const DeliveryAddressView(),
+        );
+      // - //
       case Routes.cookeatSettings:
         return MaterialPageRoute(
           builder: (_) => const CookeatSettingsView(),

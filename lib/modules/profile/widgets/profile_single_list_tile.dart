@@ -8,15 +8,19 @@ class ProfileSingleListTile extends StatelessWidget {
     required this.route,
     required this.title,
     required this.leading,
+    this.isProfileSettings,
     super.key,
   });
   final String route;
   final String title;
   final String leading;
+
+  /// This is used in the profile settings screen.
+  final bool? isProfileSettings;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
+      padding: EdgeInsets.only(top: (isProfileSettings ?? false) ? 8 : 20),
       child: ListTile(
         onTap: () {
           Navigator.of(context).pushNamed(route);
@@ -24,7 +28,9 @@ class ProfileSingleListTile extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        tileColor: AppColors.primaryColor.withOpacity(0.1),
+        tileColor: (isProfileSettings ?? false)
+            ? null
+            : AppColors.primaryColor.withOpacity(0.1),
         title: CustomText(
           title,
           textColor: AppColors.textHeadlineColor,

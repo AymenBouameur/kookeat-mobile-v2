@@ -12,67 +12,69 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          const Gap(20),
-          CustomText(
-            'Mon compte',
-            fontWeight: FontWeight.w600,
-            textColor: AppColors.textHeadlineColor,
-            fontSize: FontSizes.headline2,
-          ),
-          const Gap(30),
-          CachedNetworkImage(
-            imageUrl: 'https://t.ly/d0Xsi',
-            imageBuilder: (context, imageProvider) => Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: imageProvider,
-                  fit: BoxFit.cover,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            CustomText(
+              'Mon compte',
+              fontWeight: FontWeight.w600,
+              textColor: AppColors.textHeadlineColor,
+              fontSize: FontSizes.headline2,
+            ),
+            const Gap(30),
+            CachedNetworkImage(
+              imageUrl: 'https://t.ly/d0Xsi',
+              imageBuilder: (context, imageProvider) => Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
+              errorWidget: (context, url, error) => const SizedBox(
+                width: 120,
+                height: 120,
+              ),
+              placeholder: (context, url) => const SizedBox(
+                width: 120,
+                height: 120,
+              ),
             ),
-            errorWidget: (context, url, error) => const SizedBox(
-              width: 120,
-              height: 120,
+            const Gap(20),
+            CustomText(
+              'Jean-Pierre Dupont',
+              fontWeight: FontWeight.w600,
+              textColor: AppColors.textHeadlineColor,
+              fontSize: FontSizes.headline1,
             ),
-            placeholder: (context, url) => const SizedBox(
-              width: 120,
-              height: 120,
+            const Gap(40),
+            const ProfileSingleListTile(
+              route: Routes.profileSettings,
+              title: 'Parametres de compte',
+              leading: 'person',
             ),
-          ),
-          const Gap(20),
-          CustomText(
-            'Jean-Pierre Dupont',
-            fontWeight: FontWeight.w600,
-            textColor: AppColors.textHeadlineColor,
-            fontSize: FontSizes.headline1,
-          ),
-          const Gap(40),
-          const ProfileSingleListTile(
-            route: Routes.profileSettings,
-            title: 'Parametres de compte',
-            leading: 'person',
-          ),
-          const ProfileSingleListTile(
-            route: Routes.cookeatSettings,
-            title: 'Parametres KookEat',
-            leading: 'cookeat',
-          ),
-          const ProfileSingleListTile(
-            route: Routes.profileOrders,
-            title: 'Mes Commandes',
-            leading: 'orders',
-          ),
-          const ProfileSingleListTile(
-            route: Routes.profileFavorites,
-            title: 'Mes Favoris',
-            leading: 'favorite',
-          ),
-        ],
+            const ProfileSingleListTile(
+              route: Routes.cookeatSettings,
+              title: 'Parametres KookEat',
+              leading: 'cookeat',
+            ),
+            const ProfileSingleListTile(
+              route: Routes.profileOrders,
+              title: 'Mes Commandes',
+              leading: 'orders',
+            ),
+            const ProfileSingleListTile(
+              route: Routes.profileFavorites,
+              title: 'Mes Favoris',
+              leading: 'favorite',
+            ),
+          ],
+        ),
       ),
     );
   }
