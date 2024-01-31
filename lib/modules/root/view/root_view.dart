@@ -49,20 +49,22 @@ class _RootViewState extends State<RootView> {
           ),
         ),
         bottomNavigationBar: const CustomBottomAppBar(),
-        body: BlocBuilder<BottomAppBarCubit, int>(
-          builder: (context, state) {
-            return PageView(
-              controller: RootView.pageController,
-              physics: const NeverScrollableScrollPhysics(),
-              children: const [
-                HomeView(),
-                CartView(),
-                CatalogView(),
-                NotificationView(),
-                ProfileView(),
-              ],
-            );
-          },
+        body: SafeArea(
+          child: BlocBuilder<BottomAppBarCubit, int>(
+            builder: (context, state) {
+              return PageView(
+                controller: RootView.pageController,
+                physics: const NeverScrollableScrollPhysics(),
+                children: const [
+                  HomeView(),
+                  CartView(),
+                  CatalogView(),
+                  NotificationView(),
+                  ProfileView(),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );

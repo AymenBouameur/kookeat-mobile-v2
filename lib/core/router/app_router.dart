@@ -5,6 +5,10 @@ import 'package:cookeat/modules/auth/forgot_password/view/forgot_password_view.d
 import 'package:cookeat/modules/auth/sign_up/sign_up.dart';
 import 'package:cookeat/modules/auth/view/auth_view.dart';
 import 'package:cookeat/modules/onboard/view/on_board_view.dart';
+import 'package:cookeat/modules/profile/view/cookeat_settings_view.dart';
+import 'package:cookeat/modules/profile/view/favorites_view.dart';
+import 'package:cookeat/modules/profile/view/orders_view.dart';
+import 'package:cookeat/modules/profile/view/profile_settings_view.dart';
 import 'package:cookeat/modules/root/view/root_view.dart';
 import 'package:cookeat/modules/splashscreen/view/splashscreen_view.dart';
 import 'package:flutter/material.dart';
@@ -80,6 +84,22 @@ class AppRouter {
       case Routes.completeProfile:
         return MaterialPageRoute(
           builder: (_) => const CompleteProfileView(),
+        );
+      case Routes.profileSettings:
+        return MaterialPageRoute(
+          builder: (_) => const ProfileSettingsView(),
+        );
+      case Routes.cookeatSettings:
+        return MaterialPageRoute(
+          builder: (_) => const CookeatSettingsView(),
+        );
+      case Routes.profileOrders:
+        return MaterialPageRoute(
+          builder: (_) => const OrdersView(),
+        );
+      case Routes.profileFavorites:
+        return MaterialPageRoute(
+          builder: (_) => const FavoritesView(),
         );
     }
     return null;

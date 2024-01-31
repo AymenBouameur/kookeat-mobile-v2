@@ -8,4 +8,8 @@ abstract class Routes {
   static const signUp = '/signUp';
   static const forgotPassword = '/forgotPassword';
   static const completeProfile = '/completeProfile';
+  static const profileSettings = '/profileSettings';
+  static const cookeatSettings = '/cookeatSettings';
+  static const profileOrders = '/profileOrders';
+  static const profileFavorites = '/profileFavorites';
 }
