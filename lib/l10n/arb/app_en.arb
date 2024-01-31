@@ -1,4 +1,6 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter"
-}
+    "arabic": "Arabic",
+    "french": "French",
+    "english": "English"
+} 
