@@ -78,6 +78,7 @@ class ProfileSettingsView extends StatelessWidget {
                   );
                 },
               ),
+              const Gap(20),
             ],
           ),
         ),

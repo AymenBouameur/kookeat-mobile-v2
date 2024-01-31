@@ -15,6 +15,7 @@ dependencies:
   crypto: ^3.0.3
   cupertino_icons: ^1.0.2
   equatable: ^2.0.5
+  file_picker: ^6.1.1
   firebase_auth: ^4.16.0
   firebase_core: ^2.24.2
   flutter:
@@ -28,6 +29,7 @@ dependencies:
   flutter_svg: ^2.0.9
   gap: ^3.0.1
   google_sign_in: ^6.2.1
+  image_cropper: ^5.0.1
   intl: ^0.18.1
   shared_preferences: ^2.2.2
   sign_in_with_apple: ^5.0.0

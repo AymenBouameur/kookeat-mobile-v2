@@ -125,7 +125,7 @@ class AppStyles {
       fillColor: AppColors.cardColor,
       prefixIconColor: AppColors.iconColor,
       suffixIconColor: AppColors.iconColor,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 15),
       border: border(),
       focusedBorder: border(),
       enabledBorder: border(),
