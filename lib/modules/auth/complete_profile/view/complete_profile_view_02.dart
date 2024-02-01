@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class CompleteProfileView02 extends StatelessWidget {
-  const CompleteProfileView02({super.key});
+  const CompleteProfileView02({super.key, this.showTitle});
 
+  final bool? showTitle;
   @override
   Widget build(BuildContext context) {
     final iconsTitles = [
@@ -23,13 +24,14 @@ class CompleteProfileView02 extends StatelessWidget {
 
     return Column(
       children: [
-        CustomText(
-          'Ingredients to exclude',
-          fontWeight: FontWeight.w600,
-          textAlign: TextAlign.center,
-          textColor: AppColors.textHeadlineColor,
-          fontSize: FontSizes.headline1,
-        ),
+        if (showTitle ?? true)
+          CustomText(
+            'Ingredients to exclude',
+            fontWeight: FontWeight.w600,
+            textAlign: TextAlign.center,
+            textColor: AppColors.textHeadlineColor,
+            fontSize: FontSizes.headline1,
+          ),
         const Gap(45),
         Wrap(
           spacing: 10,

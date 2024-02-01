@@ -14,6 +14,9 @@ abstract class Routes {
   static const changePassword = '/changePassword';
   static const profileDeliveryAddress = '/profileDeliveryAddress';
   static const cookeatSettings = '/cookeatSettings';
+  static const cookeatSettingsApplicances = '/cookeatSettingsApplicances';
+  static const cookeatSettingsIngredients = '/cookeatSettingsIngredients';
+  static const cookeatSettingsDiet = '/cookeatSettingsDiet';
   static const profileOrders = '/profileOrders';
   static const profileFavorites = '/profileFavorites';
 }

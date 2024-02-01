@@ -6,8 +6,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 class CompleteProfileView03 extends StatelessWidget {
-  const CompleteProfileView03({super.key});
+  const CompleteProfileView03({super.key, this.showTitle});
 
+  final bool? showTitle;
   @override
   Widget build(BuildContext context) {
     final iconsTitles = [
@@ -26,13 +27,14 @@ class CompleteProfileView03 extends StatelessWidget {
 
     return Column(
       children: [
-        CustomText(
-          'Diet',
-          fontWeight: FontWeight.w600,
-          textAlign: TextAlign.center,
-          textColor: AppColors.textHeadlineColor,
-          fontSize: FontSizes.headline1,
-        ),
+        if (showTitle ?? true)
+          CustomText(
+            'Diet',
+            fontWeight: FontWeight.w600,
+            textAlign: TextAlign.center,
+            textColor: AppColors.textHeadlineColor,
+            fontSize: FontSizes.headline1,
+          ),
         const Gap(45),
         Wrap(
           spacing: 10,
