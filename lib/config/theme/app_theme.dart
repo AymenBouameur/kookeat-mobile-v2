@@ -41,10 +41,10 @@ class AppTheme {
       ),
       primaryColorLight: LightThemeColors.primaryColor,
       primaryColorDark: LightThemeColors.primaryColor,
-      colorScheme: const ColorScheme.light().copyWith(
+      colorScheme: ColorScheme.fromSeed(
         primary: LightThemeColors.primaryColor,
         secondary: LightThemeColors.accentColor,
-        onSecondary: Colors.white,
+        seedColor: LightThemeColors.accentColor,
       ),
     );
   }
@@ -86,10 +86,10 @@ class AppTheme {
       ),
       primaryColorLight: LightThemeColors.primaryColor,
       primaryColorDark: LightThemeColors.primaryColor,
-      colorScheme: const ColorScheme.dark().copyWith(
+      colorScheme: ColorScheme.fromSeed(
         primary: DarkThemeColors.primaryColor,
         secondary: DarkThemeColors.accentColor,
-        onSecondary: Colors.black,
+        seedColor: DarkThemeColors.accentColor,
       ),
     );
   }
