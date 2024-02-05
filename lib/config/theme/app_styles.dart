@@ -7,7 +7,7 @@ class AppStyles {
   static String primaryFontFamily = 'Poppins';
 
   /// Border radius
-  static BorderRadius get borderRadius => BorderRadius.circular(15);
+  static BorderRadius get borderRadius => BorderRadius.circular(10);
 
   /// Custom page transitions
   static const pageTransitionsTheme = PageTransitionsTheme(

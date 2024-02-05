@@ -1,5 +1,6 @@
 export 'custom_app_bar.dart';
 export 'custom_arrow_back.dart';
+export 'custom_bottom_sheet.dart';
 export 'custom_dialogue.dart';
 export 'custom_elevated_button.dart';
 export 'custom_loading_overlay.dart';

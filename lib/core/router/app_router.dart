@@ -6,7 +6,7 @@ import 'package:cookeat/modules/auth/sign_up/sign_up.dart';
 import 'package:cookeat/modules/auth/view/auth_view.dart';
 import 'package:cookeat/modules/onboard/view/on_board_view.dart';
 import 'package:cookeat/modules/profile/view/cookeat_settings/cookeat_settings.dart';
-import 'package:cookeat/modules/profile/view/favorites_view.dart';
+import 'package:cookeat/modules/profile/view/favorites/favorites_view.dart';
 import 'package:cookeat/modules/profile/view/orders/orders_view.dart';
 import 'package:cookeat/modules/profile/view/profile_settings/profile_settings.dart';
 import 'package:cookeat/modules/root/view/root_view.dart';

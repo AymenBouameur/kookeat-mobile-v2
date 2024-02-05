@@ -23,6 +23,8 @@ class CustomTextFormField extends StatelessWidget {
     this.onTap,
     this.inputFormatters,
     this.prefixIcon,
+    this.borderColor,
+    this.fillColor,
   });
 
   final bool? readOnly;
@@ -42,6 +44,8 @@ class CustomTextFormField extends StatelessWidget {
   final VoidCallback? suffixIconOnTap;
   final void Function()? onTap;
   final List<TextInputFormatter>? inputFormatters;
+  final Color? borderColor;
+  final Color? fillColor;
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +70,25 @@ class CustomTextFormField extends StatelessWidget {
             fontSize: FontSizes.headline4,
           ),
           decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: borderColor ?? AppColors.accentColor,
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: borderColor ?? AppColors.accentColor,
+              ),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(
+                color: borderColor ?? AppColors.accentColor,
+              ),
+            ),
+            fillColor: fillColor,
             hintText: hintText,
             contentPadding: maxLines != null
                 ? const EdgeInsets.symmetric(horizontal: 10, vertical: 10)
