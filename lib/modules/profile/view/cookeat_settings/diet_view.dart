@@ -23,18 +23,22 @@ class CookeatSettingsDietView extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
+        child: Stack(
+          alignment: AlignmentDirectional.topCenter,
           children: [
             const CompleteProfileView03(showTitle: false),
-            const Spacer(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 25),
-              child: CustomElevatedButton(
-                child: CustomText(
-                  'Enregistrer',
-                  textColor: AppColors.scaffoldBackgroundColor,
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: CustomElevatedButton(
+                  child: CustomText(
+                    'Enregistrer',
+                    textColor: AppColors.scaffoldBackgroundColor,
+                  ),
+                  onPressed: () {},
                 ),
-                onPressed: () {},
               ),
             ),
           ],

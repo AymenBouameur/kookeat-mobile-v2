@@ -112,11 +112,11 @@ class OrdersView extends StatelessWidget {
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 20,
+                  itemCount: 10,
                   itemBuilder: (context, index) {
                     return Container(
                       padding: const EdgeInsets.all(10),
-                      margin: const EdgeInsets.only(top: 15),
+                      margin: const EdgeInsets.only(bottom: 15),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: AppColors.accentColor),
@@ -124,7 +124,7 @@ class OrdersView extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Gap(10),
+                          const Gap(5),
                           const CustomText(
                             '12/09/22',
                             maxLines: 1,
@@ -163,6 +163,7 @@ class OrdersView extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                           const Spacer(),
+                          const Gap(2),
                           GestureDetector(
                             onTap: () {
                               Navigator.of(context).push(
@@ -172,7 +173,7 @@ class OrdersView extends StatelessWidget {
                               );
                             },
                             child: CircleAvatar(
-                              radius: 13,
+                              radius: 12,
                               backgroundColor: AppColors.accentColor,
                               child: Icon(
                                 Icons.visibility,
